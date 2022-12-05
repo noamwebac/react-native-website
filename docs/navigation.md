@@ -114,6 +114,23 @@ const ProfileScreen = ({ navigation, route }) => {
   return <Text>This is {route.params.name}'s profile</Text>;
 };
 ```
+to use navigation you must import useNavigation
+then declare useNavigation in navigation
+
+import { useNavigation } from "@react-navigation/native";
+
+const HomeScreen = () => {
+  const navigation = useNavigation();
+  
+  return (
+    <Button
+       title = "Go to Jane's profile"
+       onPress{() => 
+           navigation.navigate('Profile', { name: "Jane" })
+      }
+    />
+  );
+};
 
 This `native-stack` navigator uses the native APIs: `UINavigationController` on iOS and `Fragment` on Android so that navigation built with `createNativeStackNavigator` will behave the same and have the same performance characteristics as apps built natively on top of those APIs.
 
